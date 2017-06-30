@@ -1,0 +1,45 @@
+section
+    margin: 0 10px;
+
+    .center
+        text-align: center;
+
+    form
+        h2
+            text-align: center;
+
+        .buttons-add-remove
+            display: flex;
+            flex-direction: row-reverse;
+
+            button
+                margin-left: 15px;
+                padding: 5px 10px;
+
+        select, input
+
+            &.form-control
+                height: 40px;
+                font-size: 13px;
+                margin-bottom: 15px;           
+        
+        button, a
+            &.btn      
+                font-size: 13px;
+                outline: none;   
+                padding: 10px 20px;    
+
+            &.btn-default
+                background-color: #00B5BD;
+                color: #fff;
+
+                &:hover
+                    background: #0c949a;
+
+            &.btn-danger
+                color: #fff;
+             
+@media only screen and (min-width: 500px)
+    form
+        select,input
+            

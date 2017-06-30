@@ -1,0 +1,29 @@
+<nav>
+  <div class="nav-wrapper">
+    <a routerLink="register-trip" class="btn btn-default">Cadastrar</a>
+  </div>
+</nav>
+
+<section>
+  <table cellspacing="0">
+    <tr class="header">
+      <td>Data Viagem</td>
+      <td>Origem</td>
+      <td>Destino</td>
+      <td>Veículo</td>
+      <td>Integrantes</td>
+      <td>Opções</td>
+    </tr>
+    <tr *ngFor="let trip of trips">
+      <td>{{ trip.dateTrip }}</td>
+      <td>{{ trip.origin }}</td>
+      <td>{{ trip.destiny }}</td>
+      <td>{{ trip.vehicle }}</td>
+      <td>{{ trip.members }}</td>
+      <td>
+        <a href="#edit/{{ trip.id }}" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a href="#remove/{{ trip.id }}" title="Remover"><span class="glyphicon glyphicon-trash"></span></a>
+      </td>
+    </tr>
+  </table>
+</section>

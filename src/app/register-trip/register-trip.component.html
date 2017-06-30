@@ -1,0 +1,90 @@
+<section>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">    
+
+    <div class="form-group">
+      <div class="col-md-6" [ngClass]="applyCssError(origin)">
+        <label for="OriginTrip">Origem Viagem</label>
+        <select name='origin' class="form-control" 
+          id="OriginTrip" placeholder="Origem viagem" ngModel 
+          required #origin="ngModel">
+
+          <option value="" selected>Selecione..</option>
+          <option *ngFor="let origin of origins" value="{{ origin.id }}">{{ origin.name }}</option>
+        </select>
+      </div>
+
+      <div class="col-md-6" [ngClass]="applyCssError(distiny)">
+        <label for="DistinyTrip">Destino Viagem</label>
+        <select name="distiny" class="form-control" 
+          id="DistinyTrip" placeholder="Destino viagem" ngModel 
+          required #distiny="ngModel">
+
+          <option value="" selected>Selecione..</option>
+          <option *ngFor="let destiny of destinys" value="{{ destiny.id }}">{{ destiny.name }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-md-4" [ngClass]="applyCssError(dateTrip)">
+        <label for="DateTrip">Data da Viagem</label>
+        <input name="dateTrip" type="date" class="form-control" 
+          id="DateTrip" placeholder="date" ngModel 
+          required #dateTrip="ngModel">
+      </div>
+
+      <div class="col-md-4" [ngClass]="applyCssError(timeTrip)">
+        <label for="TimeTrip">Horário da Viagem</label>
+        <input name="timeTrip" type="time" class="form-control" 
+          id="TimeTrip" placeholder="time" ngModel 
+          required #timeTrip="ngModel">
+      </div>
+
+      <div class="col-md-4" [ngClass]="applyCssError(transportTrip)">
+        <label for="TransportTrip">Transporte</label>
+        <select name="transportTrip" class="form-control" 
+          id="TransportTrip" placeholder="Destino viagem" ngModel 
+          required #transportTrip="ngModel">
+          
+          <option value="" selected>Selecione..</option>
+          <option *ngFor="let transport of transports" value="{{ transport.id }}">{{ transport.name }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <h2>Dados Integrante</h2>       
+
+      <div *ngFor="let member of members">
+        <div class="col-md-4" [ngClass]="applyCssError(nameMember)">
+          <label for="NameMember{{ member.id }}">Nome</label>
+          <input name="nameMember{{ member.id }}" type="text" class="form-control" 
+            id="NameMember{{ member.id }}" placeholder="Nome" [(ngModel)]="member.name"
+            required #nameMember="ngModel">
+        </div>
+
+        <div class="col-md-4" [ngClass]="applyCssError(emailMember)">
+          <label for="EmailMember{{ member.id }}">E-mail</label>
+          <input name="emailMember{{ member.id }}" type="email" class="form-control" 
+            id="EmailMember{{ member.id }}" placeholder="E-mail" [(ngModel)]="member.email"
+            required email #emailMember="ngModel">
+        </div>
+
+        <div class="col-md-4" [ngClass]="applyCssError(telMember)">
+          <label for="TelMember{{ member.id }}">Telefone</label>
+          <input name="telMember{{ member.id }}" type="tel" class="form-control" 
+            id="TelMember{{ member.id }}" placeholder="Telefone" [textMask]="{mask: mask}"
+            [(ngModel)]="memberTel" required #telMember="ngModel">
+        </div>
+      </div>
+
+      <div class="col-md-12 buttons-add-remove">    
+        <button (click)="addMember()" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>    
+        <button (click)="removeMember()" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>        
+      </div>
+    </div>    
+    <div class="col-md-12">  
+      <button type="submit" class="btn btn-default" [disabled]="!f.valid">Cadastrar Viagem</button>
+      <a routerLink="" class="btn btn-danger">Voltar</a>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,58 @@
+nav
+    .nav-wrapper
+        position: relative;
+        margin-bottom: 10px;
+
+        display: flex;
+        flex-direction: row-reverse;
+        
+        a
+            position: relative;
+            right: 0;
+
+            border: 0;
+
+            &.btn      
+                font-size: 13px;
+                outline: none;   
+                padding: 10px 20px;    
+
+            &.btn-default
+                background-color: #00B5BD;
+                color: #fff;
+
+                &:hover
+                    background: #0c949a;            
+
+section
+    table
+        margin: 0 auto;
+        width: 100%;
+        background: #e8e8e8;
+        border: 1px solid #c5c5c5;
+        margin: 0;    
+        
+        tr
+            &:nth-child(even)
+                background: #e8e8e8;
+            &:nth-child(odd)
+                background: #e1e1e1;
+            td
+                padding: 10px;
+                text-align: center;
+
+                a
+                    color: #000;
+
+                    &:hover
+                        color: #e60000;
+        
+        tr.header
+            font-weight: bold;
+            background: #c5c5c5;
+            
+            padding: 0;
+            margin: 0;
+            
+            td
+            padding: 10px;
